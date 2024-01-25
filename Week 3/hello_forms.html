@@ -25,44 +25,61 @@
 
 <body class="m-3">
 
-    <div class=" header bg-black bg-gradient text-light mb-4 p-3 rounded-2 text-center">
+    <div class=" header bg-dark bg-gradient text-light mb-4 p-3 rounded-2 text-center">
         <h1>Please provide feedback<br>You may do so anonymously</h1>
     </div>
 
-    <form>
+    <div class="row">
 
-        <label class="form-label" for="user-name">Name:</label>
-        <input class="form-control" id="user-name" name="user-name">
-            
-        <br>
-            
-        <label class="form-label" for="user-email">Email:</label>
-        <input class="form-control" id="user-email" name="user-email" type="email">
 
-        <br>
+        <div class="col">
+            <h2>Instructions</h2>
 
-        <label class="form-label" for="comments">Comments:</label> <br>
-        <textarea class="form-control" id="comments" name="comments" rows="3" cols="26" required></textarea>
+            <p>As one of our students, your thoughts, feedback, and comments are important to us.</p>
+            <p>Please send them using this form.</p>
+            <p>If you would like us to follow up with you, include your contact information.</p>
+        </div> <!-- End of first instructions col div -->
 
-        <br>
+        <div class="col">
+            <form>
 
-        <label class="form-label">Are you a current student?</label> <br>
+            <label class="form-label" for="user-name">Name:</label>
+            <input class="form-control" id="user-name" name="user-name">
+                
+            <br>
+                
+            <label class="form-label" for="user-email">Email:</label>
+            <input class="form-control" id="user-email" name="user-email" type="email">
 
-        <div class="form-check">
-            <input class="form-check-input" id="student-yes" name="current-student" type="radio" checked>
-            <label class="form-check-label" for="student-yes">Yes</label>
-        </div>
+            <br>
 
-        <div class="form-check">
-            <input class="form-check-input" id="student-no" name="current-student" type="radio">
-            <label class="form-check-label" for="student-no">No</label>
-        </div>
+            <label class="form-label" for="comments">Comments:</label> <br>
+            <textarea class="form-control" id="comments" name="comments" rows="3" cols="26" required></textarea>
 
-        <br>
+            <br>
 
-        <input class="btn btn-primary" type="submit">
+            <label class="form-label">Are you a current student?</label> <br>
 
-    </form>
+            <div class="form-check">
+                <input class="form-check-input" id="student-yes" name="current-student" type="radio" checked>
+                <label class="form-check-label" for="student-yes">Yes</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" id="student-no" name="current-student" type="radio">
+                <label class="form-check-label" for="student-no">No</label>
+            </div>
+
+            <br>
+
+            <input class="btn btn-primary" type="submit">
+
+            </form>
+        </div> <!-- End of second form col div -->
+
+
+    </div> <!-- End of the row div that contains both columns -->
+
 
 </body>
 </html> 
