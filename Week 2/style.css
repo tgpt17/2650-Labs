@@ -1,0 +1,103 @@
+p {
+    color: blueviolet;
+    font-size: 20px;
+}
+
+h1{
+    color: darkblue;
+    font-size: 40px;
+    text-align: center;
+    font-family: Andale Mono, monospace;
+}
+
+h2{
+    font-size: 30px;
+    color: darkslateblue;
+}
+
+body{
+    background-color: lightblue;
+    font-family: OCR A Std, monospace;
+}
+
+li{
+    list-style-type: square;
+    margin: 5px;
+}
+
+a{
+    background-color: lightgreen;
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+ul{
+    /* Make background of unordered list lavender.*/
+    background-color: lavender;
+    color: darkorchid;
+}
+
+.section-header{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px whitesmoke;
+
+}
+
+#most-favorite { 
+    background-color: lightskyblue;
+    text-decoration: underline;
+}
+
+.second-favorite{
+    background-color: lightblue;
+}
+
+#page-title {
+    text-shadow: 4px 4px whitesmoke;
+}
+
+#favorite-music-name {
+    background-color: lightskyblue;
+    text-shadow: 3px 2px whitesmoke;
+}
+
+.favorite-section{
+    background-color: lightsteelblue;
+    border: 3px black double;
+    margin: 10px;
+    padding: 15px;
+}
+
+table, tr, th, td{
+    border: 1px black solid;
+
+}
+
+th{
+    width: 100px;
+    text-align: left;
+    background-color: lavender;
+}
+
+
+tr:nth-child(even){
+    background-color: aquamarine;
+}
+
+tr:nth-child(odd){
+    background-color: cyan;
+}
+
+
+td{
+    color: darkblue;
+}
+
+.link-name{
+    background-color: lavenderblush;
+    color:darkblue;
+}
+
+.favorite-image{
+    border-radius: 8px;
+}
