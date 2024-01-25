@@ -1,38 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Student Feedback Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Form</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Add styles after bootstrap -->
+
+    <link href="feedback-styles.css" type="text/css" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="m-3">
 
-<form>
+    <div class=" header bg-black bg-gradient text-light mb-4 p-3 rounded-2 text-center">
+        <h1>Please provide feedback<br>You may do so anonymously</h1>
+    </div>
 
-<label for="user-name">Name:</label>
-<input id="user-name" type="text">
-    
-<br>
-    
-<label for="user-email">Email:</label>
-<input id="user-email" type="email">
+    <form>
 
-<br>
+        <label class="form-label" for="user-name">Name:</label>
+        <input class="form-control" id="user-name" name="user-name">
+            
+        <br>
+            
+        <label class="form-label" for="user-email">Email:</label>
+        <input class="form-control" id="user-email" name="user-email" type="email">
 
-<label for="comments">Comments:</label> <br>
-<textarea rows="3" cols="26" required></textarea>
+        <br>
 
-<br>
+        <label class="form-label" for="comments">Comments:</label> <br>
+        <textarea class="form-control" id="comments" name="comments" rows="3" cols="26" required></textarea>
 
-<label>Are you a current student?</label> <br>
-<input id="student-yes" name="current-student" type="radio" checked><label for="student-yes">Yes</label>
-<input id="student-no" name="current-student" type="radio"><label for="student-no">No</label>
+        <br>
 
-<br>
+        <label class="form-label">Are you a current student?</label> <br>
 
-<input type="submit">
+        <div class="form-check">
+            <input class="form-check-input" id="student-yes" name="current-student" type="radio" checked>
+            <label class="form-check-label" for="student-yes">Yes</label>
+        </div>
 
-</form>
+        <div class="form-check">
+            <input class="form-check-input" id="student-no" name="current-student" type="radio">
+            <label class="form-check-label" for="student-no">No</label>
+        </div>
+
+        <br>
+
+        <input class="btn btn-primary" type="submit">
+
+    </form>
 
 </body>
 </html> 
