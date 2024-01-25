@@ -1,0 +1,11 @@
+.test {
+    background-color: lightgreen;
+    color: darkblue;
+    font-size: larger;
+}
+
+.send {
+    text-decoration: none;
+    color: red;
+    font-size: smaller;
+}
