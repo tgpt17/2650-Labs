@@ -7,29 +7,32 @@
 
 <body>
 
+<form>
+
 <label for="user-name">Name:</label>
 <input id="user-name" type="text">
     
 <br>
     
 <label for="user-email">Email:</label>
-<input id="user-email" type="text">
+<input id="user-email" type="email">
 
 <br>
 
-<textarea rows="3" cols="26">Comments:</textarea>
+<label for="comments">Comments:</label> <br>
+<textarea rows="3" cols="26" required></textarea>
 
 <br>
 
 <label>Are you a current student?</label> <br>
-<input id="student-yes" name="current-student" type="radio"><label>Yes</label>
-<input id="student-no" name="current-student" type="radio"><label>No</label>
+<input id="student-yes" name="current-student" type="radio" checked><label for="student-yes">Yes</label>
+<input id="student-no" name="current-student" type="radio"><label for="student-no">No</label>
 
-<form>
-    <input type="submit">
+<br>
+
+<input type="submit">
+
 </form>
-
-
 
 </body>
 </html> 
