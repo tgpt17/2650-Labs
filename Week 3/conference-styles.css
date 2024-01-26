@@ -8,6 +8,7 @@ body {
 h1 {
     font-family: "Cute Font", sans-serif;
     font-size: 350%;
+    filter: drop-shadow(5px 5px 5px black);
 }
 
 
@@ -16,5 +17,10 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    filter:drop-shadow(10px 10px 10px lavenderblush)
 }
 
+.form-label {
+    text-decoration: underline;
+    filter: drop-shadow(1px 1px 1px white);
+}
