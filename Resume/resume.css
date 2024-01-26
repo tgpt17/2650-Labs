@@ -1,0 +1,36 @@
+.headshot {
+    border-radius: 30%;
+
+}
+
+body {
+    background-color: rgb(0, 21, 11);
+    color: rgb(244, 255, 248);
+    font-family: "Oswald", sans-serif;
+    font-size: larger;
+}
+
+.header-1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: rgb(139, 170, 173);
+    font-size: 270%;
+    text-decoration: underline;
+}
+
+.header-2 {
+    font-family: "Bebas Neue", sans-serif;
+    text-decoration: underline;
+    color: rgb(139, 170, 173);
+    font-weight: bold;
+}
+
+.header-3 {
+    font-family: "Bebas Neue", sans-serif;
+    text-decoration: underline;
+    color: rgb(192, 184, 182);
+}
+
+#coursework {
+    font-weight: bold;
+    text-decoration: underline;
+}
