@@ -16,8 +16,9 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    filter:drop-shadow(10px 10px 10px lavenderblush)
+    width: 45%;
+    filter: drop-shadow(5px 5px 2px lavenderblush);
+    
 }
 
 .form-label {
