@@ -12,9 +12,10 @@ body {
 
 .header-1 {
     font-family: "Bebas Neue", sans-serif;
-    color: rgb(139, 170, 173);
+    color:rgb(139, 170, 173);
     font-size: 300%;
-    text-decoration: underline;;
+    text-decoration: underline;
+    font-weight: bolder;  
 }
 
 .header-2 {
@@ -41,4 +42,6 @@ body {
     border: 3px rgb(244, 255, 248) solid;
     margin: 2px;
     padding-left:5px;
+    padding-right: 5px;
+    width: max-content;
 }
