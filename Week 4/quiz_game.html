@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+</head>
+<body>
+   
+    <p>What is the capital of Wisconsin?</p> 
+    
+    <button class="wrong-answer">Bayfield</button>
+    <button id="correct-answer">Madison</button>
+    <button class="wrong-answer">Milwaukee</button>
+
+    <p id="result"></p>
+
+<script>
+
+    let correctAnswerButton = document.querySelector('#correct-answer')
+
+    let defaultButtonColor = correctAnswerButton.style.background
+
+    let result = document.querySelector('#result')
+
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+    
+    // add and event listener to both wrong answer buttons
+    wrongAnswerButtons.forEach( function(wrongAnswerButton) {  // loop - repeats for each elemenet in the wronganswerbuttons nodelist
+
+        wrongAnswerButton.addEventListener('click', function() {
+            result.innerHTML = 'Wrong answer, try again?'
+            correctAnswerButton.style.background = defaultButtonColor
+        })
+
+    })
+
+    // add event listener to one correct answer button
+    correctAnswerButton.addEventListener('click', function() {
+        result.innerHTML = 'Correct answer!'
+        correctAnswerButton.style.background = 'cyan'
+    })
+
+</script>
+
+
+</body>
+</html>
