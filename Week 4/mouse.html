@@ -6,31 +6,34 @@
     <title>Mouseover</title>
 </head>
 <body>
-    
+    <!-- Paragraph to be hovered over -->
    <p id="mouse-me">Move your mouse here</p> 
 
-<script>
+   <script>
+        // Initialize a variable to count mouseover events
+        let mouseCount = 0;
 
-    let mouseCount = 0
+        // Select the paragraph element using its ID
+        let message = document.querySelector('#mouse-me');
 
-    let message = document.querySelector('#mouse-me')
+        // Add an event listener for the 'mouseover' event on the paragraph
+        message.addEventListener('mouseover', function() {
+            // Increase mouseCount by 1
+            mouseCount = mouseCount + 1;
 
-    message.addEventListener('mouseover', function() {
-        // increase mouseCount by 1
-        mouseCount = mouseCount + 1
-        if (mouseCount == 1) {
-            message.innerHTML = 'Mouse has been here ' + mouseCount + ' time'
-        } else {
-        message.innerHTML = 'Mouse has been here ' + mouseCount + ' times' // modify message to include mouseCount
-        }
-    })
+            // Update the message based on the mouseCount value
+            if (mouseCount === 1) {
+                message.innerHTML = 'Mouse has been here ' + mouseCount + ' time';
+            } else {
+                message.innerHTML = 'Mouse has been here ' + mouseCount + ' times'; // Modify message to include mouseCount
+            }
+        });
 
-    message.addEventListener('mouseout', function() {
-        message.innerHTML = 'Your mouse is NOT on this message'
-    })
-
-</script>
-
-
+        // Add an event listener for the 'mouseout' event on the paragraph
+        message.addEventListener('mouseout', function() {
+            // Change the message when the mouse is not over the paragraph
+            message.innerHTML = 'Your mouse is NOT on this message';
+        });
+    </script>
 </body>
 </html>

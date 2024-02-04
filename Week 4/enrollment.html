@@ -6,38 +6,39 @@
     <title>Enrollment</title>
 </head>
 <body>
-   
+    <!-- Display a prompt and input field for the number of credits -->
     <p>How many credits are you taking this semester?</p>
     <input type="number" id="credit-count">
+    <!-- Button to submit the entered credits -->
     <button id="submit-credits">Enter</button>
 
+    <!-- Display area for status messages -->
     <p id="status-message"></p>
 
-<script>
+    <script>
+        // Select the button, input field, and status message elements
+        let submitButton = document.querySelector('#submit-credits');
+        let creditsInput = document.querySelector('#credit-count');
+        let statusMessage = document.querySelector('#status-message');
 
-let submitButton = document.querySelector('#submit-credits')
-let creditsInput = document.querySelector('#credit-count')
-let statusMessage = document.querySelector('#status-message')
+        // Add an event listener to the submit button for the 'click' event
+        submitButton.addEventListener('click', function() {
+            // Get the entered number of credits from the input field
+            let credits = creditsInput.value;
 
-submitButton.addEventListener('click', function() {
-    let credits = creditsInput.value 
-
-    if (credits > 24) {
-        statusMessage.innerHTML = 'Error: you cannot take more than 24 credits'
-    } else if (credits >= 12) {
-        statusMessage.innerHTML = 'You are enrolled as a full time student'
-    } else if (credits >= 6) {
-        statusMessage.innerHTML = 'You are enrolled as a half time student'
-    } else if (credits >=0) {
-        statusMessage.innerHTML = 'You are enrolled less than half time'
-    } else {
-        statusMessage.innerHTML = 'Error: enter zero or a positivie number'
-    }
-})
-
-</script>
-
-
-
+            // Check conditions and update the status message accordingly
+            if (credits > 24) {
+                statusMessage.innerHTML = 'Error: you cannot take more than 24 credits';
+            } else if (credits >= 12) {
+                statusMessage.innerHTML = 'You are enrolled as a full-time student';
+            } else if (credits >= 6) {
+                statusMessage.innerHTML = 'You are enrolled as a half-time student';
+            } else if (credits >= 0) {
+                statusMessage.innerHTML = 'You are enrolled less than half-time';
+            } else {
+                statusMessage.innerHTML = 'Error: enter zero or a positive number';
+            }
+        });
+    </script>
 </body>
 </html>

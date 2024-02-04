@@ -7,18 +7,78 @@
 </head>
 <body>
    
+    <!-- Label and input for entering new text -->
     <label for="new-text">Enter your text</label>
     <input id="new-text">
 
+    
+    <!-- List to display entered text items -->
+    <ul id="list-of-text"> </ul>
 
-    <ul id="list_of_text">
+    <!-- Button to add new text to the list -->
+    <button id="add-new-text">Add text to list</button>
 
-    </ul>
-
-
-    <button id="add_new_text">Add text to list</button>
+    <!-- Button to clear all items from the list -->
+    <button id="clear-all-list">Clear all items</button>
 
 <script>
+    // Select relevant elements and initialize a counter
+    let addNewTextButton = document.querySelector('#add-new-text')
+    let newTextInput = document.querySelector('#new-text')
+    let listOfText = document.querySelector('#list-of-text')
+    let clearAllListButton = document.querySelector('#clear-all-list')
+    let numberOfListItems = 0
+
+    // Add an event listener for the 'keyup' event on the document
+    document.addEventListener('keyup', function() {
+        // If the Enter key is pressed (keyCode 13), simulate a click on the addNewTextButton
+        if (event.keyCode == 13) {
+            addNewTextButton.click()
+        }
+    })
+
+    // Add an event listener for the 'click' event on the addNewTextButton
+    addNewTextButton.addEventListener('click', function() {
+
+        // Check if the maximum number of list items (10) has been reached
+        if (numberOfListItems >= 10) {
+            alert('That is too many things')
+            return
+        }
+
+        // Get the text entered in the input field
+        let newTextEntered = newTextInput.value 
+
+        // Check if the length of the entered text is more than 50
+        if (newTextEntered.length > 50) {
+            alert ('Please enter less than 50 characters')
+            return
+        }
+
+        // Check if the entered text is empty
+        if (newTextEntered.length ==0 ) {
+            alert ('Enter some text')
+            return
+        }
+
+        // Create a new list item element, set its content, and append it to the list
+        let newLiElement = document.createElement('li')
+        newLiElement.innerHTML = newTextEntered
+        
+        listOfText.appendChild(newLiElement)
+
+        // Increment the counter and reset the input field
+        numberOfListItems = numberOfListItems +1
+        
+        newTextInput.value = ''
+
+    })
+
+    // Add an event listener for the 'click' event on the clearAllListButton
+    clearAllListButton.addEventListener('click', function() {
+        // Clear all items from the list
+        listOfText.innerHTML = ''
+    })
 
 
 
@@ -26,4 +86,4 @@
 
 
 </body>
-</html>74
+</html>
