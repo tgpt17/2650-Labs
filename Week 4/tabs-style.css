@@ -1,0 +1,28 @@
+.tab-button {
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    margin: 1px;
+    outline: none;
+}
+
+.tab-button:hover {
+    background-color: cornflowerblue;
+}
+
+.tab-button.active {
+    /* only be applied to element with class tab-button and class active */
+    background-color: aquamarine;
+}
+
+#tabs {
+    background-color: gainsboro;
+    border: 1px solid blue;
+}
+
+.tab-content {
+    border-right: 1px solid blue;
+    border-left: 1px solid blue;
+    border-bottom: 1px solid blue;
+    padding: 10px;
+}

@@ -21,8 +21,20 @@
 
 
 <body>
-<div class="row">
+<h1 id="title-1">Travis Wagner's Portfolio</h1>
 
+
+<div id="tabs">
+    <button data-content-id="intro" class="tab-button">Introduction</button>
+    <button data-content-id="resume" class="tab-button">Resume</button>
+    <button data-content-id="projects" class="tab-button">Projects</button>
+</div>
+
+
+
+
+
+    <div id="intro" class="tab-content">
         <div class="col-lg-2 p-2">
             <img src="headshot.jpg" 
             alt="Travis Wagner's headshot" 
@@ -30,7 +42,9 @@
             height="400" width="310"
             class="headshot">
         </div>
+ </div>
 
+<div id="resume" class="tab-content">
 <div class="col-lg-10 p-2">
     <h1 class="header-1">Travis Wagner</h1> <br>
 
@@ -152,7 +166,44 @@
     <br>
 
 
+
     </div>
-    </div>
+</div>
+
+<div id="projects" class="tab-content">Coming Soon...</div>
+
+
+
+<script>
+
+    let buttons = document.querySelectorAll('.tab-button')
+    let tabContents = document.querySelectorAll('.tab-content')
+
+    tabContents.forEach( function(divEL) {
+        divEL.style.display = 'none'
+    })
+
+    tabContents[0].style.display = 'block' //show first tab
+
+    buttons.forEach( function(button) {
+        button.addEventListener('click', function() {
+            // hide all content
+            // show the div content that relates to the button that was clicked
+            tabContents.forEach( function(divEL) {
+                divEL.style.display = 'none'
+            })
+
+            let contentId = this.getAttribute('data-content-id') // this is the element that generated the event
+
+            let tabContent = document.querySelector('#' + contentId) //example #pizza
+            tabContent.style.display = 'block'
+
+        })
+    })
+
+</script>
+
+
+
 </body>
 </html>

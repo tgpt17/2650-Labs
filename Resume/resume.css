@@ -11,6 +11,16 @@ body {
     font-size: larger;
 }
 
+
+#title-1 {
+    font-family: "Bebas Neue", sans-serif;
+    color:rgb(139, 170, 173);
+    font-size: 300%;
+    text-decoration: underline;
+    font-weight: bolder;  
+    
+}
+
 .header-1 {
     font-family: "Bebas Neue", sans-serif;
     color:rgb(139, 170, 173);
