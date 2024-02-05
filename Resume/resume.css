@@ -1,6 +1,6 @@
 .headshot {
     border-radius: 30%;
-    border
+    border: 1px rgb(244, 255, 248) solid;
 }
 
 body {
@@ -62,17 +62,22 @@ body {
     margin: auto;
 }
 
+.github {
+    border: 1px rgb(244, 255, 248) solid;
+}
+
 #ccdc {
     
 }
 
 .tab-button {
-    background-color: rgb(140, 156, 177);
+    background-color: rgb(71, 105, 151);
     border: none;
     padding: 10px;
     margin: 5px;
     outline: none;
     border-radius: 5%;
+    border: 1px rgb(244, 255, 248) solid;
 }
 
 .tab-button:hover {
@@ -85,4 +90,13 @@ body {
 }
 
 #tabs {
+    background-image: linear-gradient(rgb(115, 115, 121), rgb(140, 156, 177)) ;
+    border: 1px rgb(244, 255, 248) solid;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: fit-content;
+    text-align: center;
+    margin: auto; 
 }
