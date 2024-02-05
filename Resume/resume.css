@@ -1,6 +1,6 @@
 .headshot {
     border-radius: 30%;
-    padding-left: 10px;
+    border
 }
 
 body {
@@ -9,6 +9,7 @@ body {
     font-family: "Oswald", sans-serif;
     font-size: larger;
     text-align: center;
+    
 
 }
 
@@ -22,6 +23,7 @@ body {
     text-align: center;
 
 }
+
 
 .header-1 {
     font-family: "Bebas Neue", sans-serif;
@@ -57,15 +59,20 @@ body {
     padding-top: 10px;
     width: max-content;
     text-align: center;
-    align-items: center;
+    margin: auto;
+}
+
+#ccdc {
+    
 }
 
 .tab-button {
     background-color: rgb(140, 156, 177);
     border: none;
     padding: 10px;
-    margin: 1px;
+    margin: 5px;
     outline: none;
+    border-radius: 5%;
 }
 
 .tab-button:hover {
