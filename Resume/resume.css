@@ -1,7 +1,6 @@
 .headshot {
     border-radius: 30%;
     padding-left: 10px;
-
 }
 
 body {
@@ -9,16 +8,19 @@ body {
     color: rgb(244, 255, 248);
     font-family: "Oswald", sans-serif;
     font-size: larger;
+    text-align: center;
+
 }
 
 
 #title-1 {
     font-family: "Bebas Neue", sans-serif;
-    color:rgb(139, 170, 173);
+    color: rgb(244, 255, 248);
     font-size: 300%;
     text-decoration: underline;
     font-weight: bolder;  
-    
+    text-align: center;
+
 }
 
 .header-1 {
@@ -54,5 +56,26 @@ body {
     padding-right: 10px;
     padding-top: 10px;
     width: max-content;
+    text-align: center;
+    align-items: center;
 }
 
+.tab-button {
+    background-color: rgb(140, 156, 177);
+    border: none;
+    padding: 10px;
+    margin: 1px;
+    outline: none;
+}
+
+.tab-button:hover {
+    background-color: rgb(244, 255, 248);
+}
+
+.tab-button.active {
+    /* only be applied to element with class tab-button and class active */
+    background-color: rgb(73, 140, 141);
+}
+
+#tabs {
+}
