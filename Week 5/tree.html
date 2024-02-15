@@ -149,7 +149,7 @@
     if (!zipcode) {
         errors.push("Please enter your zip code.");
         homeownerZip.classList.add('error');
-    } else if (isNaN(zipcode) || zipcode < 55001 || zipcode > 56763) {
+    } else if (!isMNZip(zipcode)) {
         errors.push("Zip code must be a number between 55001 and 56763.");
         homeownerZip.classList.add('error');
     } else {
@@ -180,7 +180,10 @@
         
     })
 
-
+    function isMNZip(code){
+    // All MN zip are between these numbers: 55001 and 56763
+    return (code >= 55001 && code <= 56763);
+}
 
 </script>
 

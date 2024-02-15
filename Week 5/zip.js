@@ -1,5 +1,5 @@
 function isMinnesotaZip(code){
-    // All MN zipa re between these numbers: 55001 and 56763
+    // All MN zip are between these numbers: 55001 and 56763
     if (code >= 55001 && code <= 56763) {
         return true
     } else {
