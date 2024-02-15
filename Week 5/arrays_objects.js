@@ -48,8 +48,7 @@ rates["CHF"] = 1.1787
 let euros = 100
 let exchangeRateToAud = rates["AUD"]
 let equivalentInAUD = euros * exchangeRateToAud
-
-console.log("Equivalent value in Australian Dollars (AUD):", equivalentInAUD.toFixed(2))
+    console.log("Equivalent value in Australian Dollars (AUD):", equivalentInAUD.toFixed(2))
 
 /* c. Use this JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
  */
@@ -63,6 +62,7 @@ let cats_and_owners = [
 
 // TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
 cats_and_owners.push({ name: "Taylor Swift", cat: "Meredith" })
+
 // TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
 //   Each line should have a message like "Snoop Dogg's cat is called Miles Davis"
 cats_and_owners.forEach(owner => {
@@ -70,6 +70,7 @@ cats_and_owners.forEach(owner => {
 })
 // TODO print Gary Oldman's cat's name by reading the data in the appropriate array index, using [] notation
 console.log("Gary Oldman's cat's name:", cats_and_owners[1].cat)
+
 // TODO print Gary Oldman's cat's name by looping over the array until you find the object with name = "Gary Oldman"
 let garyOldmansCat;
 cats_and_owners.forEach(owner => {
