@@ -82,6 +82,7 @@ window.addEventListener('keyup', function() {
         let inputElements = [expenseNameInput, expenseAmountInput, addExpenseButton]
         if (inputElements.includes(document.activeElement)) {
             addExpenseButton.click()
+            expenseNameInput.focus()
         }
     }
 })
