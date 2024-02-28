@@ -37,7 +37,7 @@ let bridgeData = [ {
 
 // todo make three more objects for the other bridges
 
-bridgeData.forEach( function(bridge){
+bridgeData.forEach( function (bridge){
     let bridgeCoordinates = bridge.coordinates
     let bridgeMarker = L.marker(bridgeCoordinates).addTo(bridgeMap)
     // todo create popup from data in the bridge object
