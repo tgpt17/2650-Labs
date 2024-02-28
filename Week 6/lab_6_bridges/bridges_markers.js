@@ -76,7 +76,50 @@ bridgeData.forEach(function(bridge) {
     bridgeMarker.bindPopup(`<b>${bridge.name}</b><br>City, State: ${bridge.cityState}<br>Span: ${bridge.span} meters`);
 });
 
-// Instead of the default marker, draw a bridge icon as the marker at the bridge locations. The image being used is bridge.png
-// Make sure you set the height and width to values that work with your image icon, so your bridge icon isn't squashed or stretched.
 
-// Examine your bridge data array and use JavaScript to figure out which bridge is longest. Draw the marker for this bridge in a different color, or display a different icon for the longest bridge. You can change the colors of an icon if you register for a Flaticon account. 
+
+// Use the dataset below to draw a Chart.js bar chart of the bridge names and their span lengths
+// Bridge Name 	City, State 	Span (meters) 	Location (latitude, longitude)
+// Verrazano-Narrows Bridge 	New York, NY 	1298.4 	40.6066, -74.0447
+// Golden Gate Bridge 	San Francisco and Marin, CA 	1280.2 	37.8199, -122.4783
+// Mackinac Bridge 	Mackinaw and St Ignace, MI 	1158.0 	45.8174, -84.7278
+// George Washington Bridge 	New York, NY and New Jersey, NJ 	1067.0 	40.8517, -73.9527
+// Tacoma Narrows Bridge 	Tacoma and Kitsap, WA 	853.44 	47.2690, -122.5517
+
+// Use the array you created in part 2 to avoid typing the data into your program again.  Don't manually write the data into Chart.js arrays. 
+// You can use ChartJS's default colors, or set all the colors to the same value, or cycle through a set of colors for the bar colors.
+
+
+// Extracting bridge names and spans
+let bridgeNames = bridgeData.map(bridge => bridge.name);
+let bridgeSpans = bridgeData.map(bridge => bridge.span);
+
+// Create a canvas element
+let canvas = document.createElement('canvas');
+canvas.id = 'bridge-chart';
+document.body.appendChild(canvas);
+
+// Drawing Chart.js bar chart
+let ctx = document.getElementById('bridge-chart').getContext('2d');
+let bridgeChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: bridgeNames,
+        datasets: [{
+            label: 'Span (meters)',
+            data: bridgeSpans,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)', // Default color for all bars
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
