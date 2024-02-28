@@ -1,7 +1,7 @@
 // coordinates for map center
 let mapCenter = [44, 0]
 // how much to zoom in or zoom out
-let zoomLevel = 0.5;
+let zoomLevel = 0.5
 
 let bridgeMap = L.map('bridge-map').setView(mapCenter, zoomLevel)
 
