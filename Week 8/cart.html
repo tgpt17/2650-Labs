@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue Table</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        th, td {
+            width: 25%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Table to display item, unit price, quantity, and total -->
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ unitPrice }}</td>
+                <td><input type="number" v-model="quantity"></td>
+                <td>{{ total }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Vue.js script -->
+    <script>
+        const { createApp, ref, computed } = Vue
+
+        // Create Vue app
+        createApp({
+            setup() {
+                const name = ref('Hat')
+                const quantity = ref(1)
+                const unitPrice = ref(4.99)
+
+                // Compute total price based on quantity and unit price
+                const total = computed(function() {
+                    const totalPrice = quantity.value * unitPrice.value // Calculate total price
+                    const formattedPrice = totalPrice.toFixed(2) // Format total price with 2 decimal places
+                    return formattedPrice // Return formatted total price
+                });
+
+                return {
+                    name,
+                    quantity,
+                    unitPrice,
+                    total
+                };
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

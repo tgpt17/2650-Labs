@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <h1>Hello Vue!</h1>
+
+        <!-- Display message with exclamation points -->
+        <p>{{ messageWithExclamationPoints }}</p>
+
+        <!-- Button to add exclamation points -->
+        <button v-on:click="addExclamationPoints">Add Exclamation Points</button>
+        
+        <!-- Button to clear exclamation points -->
+        <button v-on:click="clearExclamationPoints">Clear</button>
+
+    </div>
+    
+
+    <script>
+
+        const { createApp, ref, computed } = Vue
+
+        // Create Vue app
+        createApp({
+            setup() {
+
+                const message = ref('Hi'); // Initial message
+                const numberOfExclamationPoints = ref(0) // Number of exclamation points
+
+                // Function to add exclamation points
+                function addExclamationPoints() {
+                    if (numberOfExclamationPoints.value < 10) {
+                        numberOfExclamationPoints.value++ // Increment the number of exclamation points
+                    } else {
+                        alert('No more exclamation points!') // Alert when the limit is reached
+                    } 
+                }
+
+                // Function to clear exclamation points
+                function clearExclamationPoints() {
+                    numberOfExclamationPoints.value = 0 // Reset the number of exclamation points
+                }
+
+                // Compute the message with exclamation points
+                const messageWithExclamationPoints = computed(function() {
+                    let computedMessage = message.value
+                    // Append exclamation points to the message
+                    for (let x = 0; x < numberOfExclamationPoints.value; x++) {
+                        computedMessage = computedMessage + '!'
+                    }
+                    return computedMessage
+                });
+
+
+                return {
+                    message,
+                    addExclamationPoints,
+                    numberOfExclamationPoints,
+                    clearExclamationPoints, 
+                    messageWithExclamationPoints
+                };
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

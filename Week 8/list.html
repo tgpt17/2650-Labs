@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue To Do List</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <h1>Task List</h1>
+
+        <h2>Enter new Task</h2>
+        <!-- Label for the input field -->
+        <label>Please enter your to-do task</label>
+        <!-- Input field to enter a new task, bind its value to 'newTask' variable -->
+        <input v-model="newTask">
+        <br>
+        <!-- Button to add a new task, triggers 'addTask' function -->
+        <button v-on:click="addTask">Add Task</button>
+
+        <!-- Section to display the list of tasks -->
+        <h2>List of tasks</h2>
+        <!-- Unordered list to display tasks using v-for directive -->
+        <ul>
+            <!-- Loop through each task in 'taskList' and display it as a list item -->
+            <li v-for="task in taskList">
+                {{ task }} <!-- Display the task -->
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        const { createApp, ref } = Vue
+
+        // Create Vue app
+        createApp({
+            setup() {
+
+                const taskList = ref(['Water plants', 'Pay cellphone bill', 'Wash floor']) // Initial list of tasks
+                const newTask = ref('') // Variable to store new task input
+
+                // Function to add a new task
+                function addTask() {
+                    if (newTask.value) { // Check if new task is not empty
+                        taskList.value.push(newTask.value) // Add new task to the task list
+                        newTask.value = '' // Clear the input field after adding the task
+                    }
+                }
+
+                return {
+                    taskList,
+                    newTask,
+                    addTask
+                };
+            }
+        }).mount('#app') 
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue Forms</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <label>Please Enter Your Name:</label>
+        <!-- Bind input value to the 'name' variable using v-model -->
+        <input v-model="name">
+
+        <!-- Display a message if 'name' is not empty -->
+        <p v-if="name">Thanks, your name is {{ name }}</p>
+        <!-- Display a message if 'name' is empty -->
+        <p v-else>Awaiting user input</p>
+
+        <!-- Button to clear the entered name -->
+        <button v-on:click="clearName">Clear Name</button>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue
+
+        // Create Vue app
+        createApp({
+            setup() {
+                // Define a reactive variable for storing the name
+                const name = ref('')
+
+                // Function to clear the entered name
+                function clearName() {
+                    name.value = '' // Clear the value of 'name'
+                }
+
+                return {
+                    name,
+                    clearName
+                };
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
