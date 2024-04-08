@@ -89,27 +89,6 @@
 
 <script>
 
-    /* This app will store a list of student objects. Each student object should have this structure,
-    {name: 'Beyonce Knowles', id: 'aa1234bb', gpa: 3.8, selected: false, present: false}
-    
-    Add the following functionality to this page
-        * Display the number of students in the student-count span. Keep this value up to date as students are added and removed, using a computed property. 
-    
-        * When the add student button is clicked 
-            - Read the value from the student-name input, save in a variable. If the name is not entered, show an alert error message and return. (1pt)
-            - Read the value from the student-id input, save in a variable. If the id is not entered, show an alert error message and return. (1pt)
-            - Read the value from the student-gpa input, save in a variable. If the GPA is not entered, or is not in the range 0-4, show an alert error message and return.  (1pt)
-        
-        * An event handler that toggles the selected value for a student object is provided for you. 
-        * Each li element will use the appropriate class based on whether a student is selected or not. 
-        * When the Remove selected students is clicked, remove all selected students. 
-        * Checkboxes work to set student present/absent
-        * All student data shown in table
-        * Welcome/goodbye message shown
-        * Different styles for present/absent students 
-    */
-
-
     const { createApp, ref, computed } = Vue // makes these functions available to us from Vue
 
     createApp({ // this creates the Vue app that manages the data on the page AND the HTML
