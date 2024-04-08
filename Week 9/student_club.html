@@ -13,6 +13,14 @@
         color: gray;
       }
 
+      .present {
+        color: red;
+      }
+
+      .absent {
+        color: green;
+      }
+
       input {
           width: 100%;
           padding: 5px;
@@ -56,28 +64,33 @@
     <p>There is/are 
         <span id="student-count">
         <!-- Create a computed property called studentCount and use it to display the student count here -->
+        {{ studentCount }}
         </span> 
     student(s) in the club.</p>
     
 
     <ul id="student-list">
         <!-- use v-for to create li elements, one for each student -->
-        <li v-for="student in studentList" v-on:click="selectOrUnselectStudent(student)" v-bind:class="{ selected: student.selected }">
+        <li v-for="student in studentList" v-on:click="togglePresent(student)" v-bind:class="{ selected: student.selected, present: student.present, absent: !student.present }">
             <!-- Modify this to display the student's data more neatly - display their name, ID and GPA. -->
             <!-- for example "Beyonce Knowles, id: aa1234bb, GPA 3.8" -->
-            Name: {{ student.name }} Id: {{ student.id }}
+            {{ student.name }}, id: {{ student.id }}, GPA: {{ student.gpa }}
         </li>
     </ul>
 
     <!-- Add a v-on to call removeSelectedStudents -->
-    <button id="remove-selected-students">Remove selected students</button>
+    <button v-on:click="removeSelectedStudents" id="remove-selected-students">Remove selected students</button>
+
+    <!-- Welcome and goodbye messages -->
+    <p v-if="studentCount > 0">Welcome to the club!</p>
+    <p v-else>Goodbye! The club is empty.</p>
 
 </div>  <!-- end of div#app -->
 
 <script>
 
     /* This app will store a list of student objects. Each student object should have this structure,
-    {name: 'Beyonce Knowles', id: 'aa1234bb', gpa: 3.8, selected: false}
+    {name: 'Beyonce Knowles', id: 'aa1234bb', gpa: 3.8, selected: false, present: false}
     
     Add the following functionality to this page
         * Display the number of students in the student-count span. Keep this value up to date as students are added and removed, using a computed property. 
@@ -90,7 +103,10 @@
         * An event handler that toggles the selected value for a student object is provided for you. 
         * Each li element will use the appropriate class based on whether a student is selected or not. 
         * When the Remove selected students is clicked, remove all selected students. 
-        
+        * Checkboxes work to set student present/absent
+        * All student data shown in table
+        * Welcome/goodbye message shown
+        * Different styles for present/absent students 
     */
 
 
@@ -114,66 +130,82 @@
             const errors = ref([])
 
             // Create a computed property studentCount. This will set the value to the length of the student list. 
+            const studentCount = computed(() => studentList.value.length)
 
             const addNewStudent = () => { // function definition
 
-
                 // Set the errors value to an empty array 
+                errors.value = []
 
                 // Read the value from newStudentName. If it is empty, add an error message to the end of the errors ref.
+                if (!newStudentName.value.trim()) {
+                    errors.value.push('Student name is required.')
+                }
+
                 // Read the value from newStudentId. If it is empty, add an error message to the end of the errors ref.
+                if (!newStudentID.value.trim()) {
+                    errors.value.push('Student ID is required.')
+                }
+
                 // Read the value from newStudentGPA. If it is empty, add an error message to the end of the errors ref.
-                //  And, check that newStudentGPA is between 0 and 4. If not, add an error message to the end of the errors ref.
+                if (!newStudentGPA.value.toString().trim()) {
+                    errors.value.push('Student GPA is required.');
+                } else {
+                    // And, check that newStudentGPA is between 0 and 4. If not, add an error message to the end of the errors ref.
+                    const gpa = parseFloat(newStudentGPA.value);
+                    if (isNaN(gpa) || gpa < 0 || gpa > 4) {
+                        errors.value.push('Student GPA must be a number between 0 and 4.');
+                    }
+                }
                 
                 // Check the length of errors. If it is more than 0, show an alert with the error message(s)
                 if (errors.value.length > 0) {
                     alert(errors.value.join('\n'))
                 } else {
 
-                    // what data is in newStudentName?
+                    // Create a new student object with properties name, id, gpa, selected, and present. 
                     const newStudent = {
                         name: newStudentName.value,
                         id: newStudentID.value,
-                        selected: false
+                        gpa: parseFloat(newStudentGPA.value),
+                        selected: false,
+                        present: false
                     }
 
-                    console.log(newStudent)
-                    //todo add to newStudentList
-
-                    studentList.value.push(newStudent)
-                    // Create a new student object with properties name, id, gpa, selected. 
-                    // Set name to newStudentName's value
-                    // Set id to newStudentId's value 
-                    // Set gpa to newStudentGpa's value
-                    // Set selected to false 
-
                     // Add this new object to the end of studentList 
+                    studentList.value.push(newStudent)
 
                     // Set the value of newStudentName, newStudentId, newStudentGpa to empty strings, to clear the form 
+                    newStudentName.value = ''
+                    newStudentID.value = ''
+                    newStudentGPA.value = ''
                 }
             }
 
             const removeSelectedStudents = () => {
-                // Remove all students with selected = true from the studentList. You can do this with filter,
-                // or you can make a new empty array, loop over the studentList, and copy all selected = false students
-                // to the new list, then replace the value of studentList with the new array 
+                // Remove all students with selected = true from the studentList.
+                studentList.value = studentList.value.filter(student => !student.selected)
             }
 
-
-            const selectOrUnselectStudent = (student) => {
-                // This function is completed for you. If the selected property is true, it is changed to false. 
-                // if the selected property is false, it is changed to true. 
+            const togglePresent = (student) => {
+                // Toggle the selected property of the student when clicked
                 student.selected = !student.selected
+                student.present = !student.present
             }
-
 
             return {
                 // List all the refs and functions and computed properties 
-                newStudentName, newStudentID, newStudentGPA, studentList, addNewStudent
+                newStudentName,
+                newStudentID,
+                newStudentGPA,
+                studentList,
+                addNewStudent,
+                removeSelectedStudents,
+                studentCount,
+                togglePresent
             }
         } // end of setup function
     }).mount('#app') // connect to the HTML in the div #app - all the HTML for this page
-
 
 </script>
 
