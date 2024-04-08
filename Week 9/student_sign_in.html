@@ -13,7 +13,10 @@
     <div id="app">
         
         <div id="new-student-form-errors" class="m-2">
-            <!-- TODO show errors from form validation -->
+            <!-- Show errors from form validation -->
+            <ul>
+                <li v-for="error in formErrors">{{ error }}</li>
+            </ul>
         </div>
 
 
@@ -22,18 +25,15 @@
 
             <div class="form-group mb-3">
                 <label for="name">Name</label>
-                <!-- TODO v-model newStudentName -->
-                <input id="name" class="form-control">
+                <input v-model="newStudentName" id="name" class="form-control">
             </div>
 
             <div class="form-group mb-3">
                 <label for="starID">Star ID</label>
-                 <!-- TODO v-model newStarID -->
-                <input id="starID" class="form-control">
+                <input v-model="newStarID" id="starID" class="form-control">
             </div>
 
-            <!-- TODO v-on:click event handler -->
-            <button class="btn btn-primary">Add</button>
+            <button v-on:click="addStudent" class="btn btn-primary">Add</button>
         </div>
 
 
@@ -46,42 +46,87 @@
                             <th>Name</th>
                             <th>StarID</th>
                             <th>Present?</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 
-                   <tbody>
-                        <!-- TODO create table rows 
-                        Each row will have a checkbox, bound to the app's data 
-                        When the checkbox is checked/unchecked, 
-                        the student will be signed in/out -->
-
-                   </tbody>
+                    <tbody>
+                        <!-- Create table rows -->
+                        <tr v-for="(student, index) in studentList">
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.starID }}</td>
+                            <td><input type="checkbox" v-model="student.present"></td>
+                            <td><button @click="removeStudent(index)" class="btn btn-danger">Remove</button></td>
+                        </tr>
+                    </tbody>
 
                 </table>
             </div>
         </div>
 
         <div id="welcome-or-goodbye-message" class="m-2">
-            
-            <!-- TODO show a message when student arrives or leaves  -->
-            
+            <!-- Show a message when student arrives or leaves -->
+            <p v-if="presentStudents.length > 0">Welcome to the class!</p>
+            <p v-else>Goodbye! No students present.</p>
         </div>
 
     </div>
 
     <script>
 
-        const { createApp, ref } = Vue 
+        const { createApp, ref, computed } = Vue 
 
         createApp({
             setup() {
 
-                const studentList = ref({
-                    
+                const studentList = ref([])
+                const newStudentName = ref('')
+                const newStarID = ref('')
+                const formErrors = ref([])
+
+                const addStudent = () => {
+                    // Validate form inputs
+                    formErrors.value = []
+                    if (!newStudentName.value.trim()) {
+                        formErrors.value.push('Name is required.')
+                    }
+                    if (!newStarID.value.trim()) {
+                        formErrors.value.push('Star ID is required.')
+                    }
+                    if (formErrors.value.length > 0) {
+                        return; // Prevent adding student if there are errors
+                    }
+
+                    // Add student to the list
+                    studentList.value.push({
+                        name: newStudentName.value,
+                        starID: newStarID.value,
+                        present: false
+                    })
+
+                    // Clear form inputs
+                    newStudentName.value = ''
+                    newStarID.value = ''
+                }
+
+                const removeStudent = (index) => {
+                    // Remove student from the list
+                    studentList.value.splice(index, 1);
+                }
+
+                const presentStudents = computed(() => {
+                    // Filter students who are present
+                    return studentList.value.filter(student => student.present)
                 })
 
                 return {
-
+                    studentList,
+                    newStudentName,
+                    newStarID,
+                    formErrors,
+                    addStudent,
+                    removeStudent,
+                    presentStudents
                 }
             }
         }).mount('#app')
@@ -91,6 +136,3 @@
 </body>
 
 </html>
-
-
-
