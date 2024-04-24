@@ -1,5 +1,5 @@
 <script setup>
-// Import necessary utilities and components
+
 import { ref } from 'vue'
 import { useBmiStore } from "../stores/BMIstore.js"
 import { storeToRefs } from 'pinia'
@@ -25,7 +25,7 @@ const emitStatsEntered = () => {
 
 <template>
   <div>
-    <!-- Display the form title -->
+
     <h2>Form to Enter your data</h2>
     <!-- Form to enter height and weight -->
     <div id="questions">

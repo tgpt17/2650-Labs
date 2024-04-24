@@ -1,5 +1,5 @@
 <script setup>
-  // Import the BodyMassIndexForm component
+
   import BodyMassIndexForm from './components/BodyMassIndexForm.vue'
   
   // Define reactive variables for height, weight, and BMI
@@ -28,7 +28,7 @@
 
 <template>
   <div>
-    <!-- Display the title of the BMI calculator -->
+
     <h1>Body Mass Index Calculator</h1>
     
     <!-- Render the BodyMassIndexForm component and listen for 'stats-entered' event -->
@@ -42,5 +42,5 @@
 </template>
 
 <style scoped>
-  /* Scoped styles can be added here */
+
 </style>
