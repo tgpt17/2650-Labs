@@ -15,11 +15,18 @@ const { height } = storeToRefs(BMIstore)
 
 <h2>Form to Enter your data</h2>
 
-<label>Enter your height in meters</label>
-<input v-model="height>
+<div id="questions">
+    <label>Enter your height in meters</label>
+    <input v-model="height">
+
+    <label>Enter your weight in kilograms</label>
+    <input v-model="weight">
+</div>
 
 </template>
 
 <style scoped>
-
+#questions {
+    background-color: lightgreen;
+}
 </style>
