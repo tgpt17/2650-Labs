@@ -28,6 +28,8 @@ const { height, weight } = storeToRefs(BMIStore)
       <!-- Input field for weight with v-model connected to reactive weight variable -->
       <input v-model="weight">
 
+      <button @click="Calculate"></button>
+
 </template>
 
 <style scoped>
