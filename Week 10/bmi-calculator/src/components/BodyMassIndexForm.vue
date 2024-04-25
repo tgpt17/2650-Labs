@@ -10,6 +10,7 @@ const BMIstore = useBMIStore()
 // Define reactive variables for height and weight
 const { height, weight } = storeToRefs(BMIStore)
 
+const calculatedBMI = storeToRefs(bmi)
 
 
 </script>
@@ -28,7 +29,7 @@ const { height, weight } = storeToRefs(BMIStore)
       <!-- Input field for weight with v-model connected to reactive weight variable -->
       <input v-model="weight">
 
-      <button @click="Calculate"></button>
+      <button v-on:click="calculatedBMI">Calculate</button>
 
 </template>
 
