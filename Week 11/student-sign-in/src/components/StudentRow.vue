@@ -13,12 +13,19 @@ const emit = defineEmits(['arrived-or-left', 'delete-student'])
 // Creating a reactive reference to track whether the student is present
 const isStudentPresent = ref(props.student.present)
 
-// Function to emit the 'delete-student' event when the user confirms deletion
+// This function notifies subscribers about a student's arrival or departure
 const notifyArrivedOrLeft = () => {
+    emit('arrived-or-left', props.student, isStudentPresent.value) 
+}
+
+// Function delete-student event when the user confirms deletion
+const confirmThenDeleteStudent = () => {
     if (confirm(`Delete ${props.student.name}?`)) {
         emit('delete-student', props.student)
     }
 }
+
+
 </script>
 
 

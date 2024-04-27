@@ -21,11 +21,11 @@ const { mostRecentStudent } = storeToRefs(studentStore)
     <div v-if="mostRecentStudent.name">
         <!-- Displaying a welcome message if the most recent student is present -->
         <div v-if="mostRecentStudent.present" class="alert alert-success">
-            Welcome, {{ mostRecentStudent,name }}!
+            Welcome, {{ mostRecentStudent.name }}!
         </div>
         <!-- Displaying a goodbye message if the most recent student is not present -->
         <div v-else class="alert alert-info">
-            Goodbye, {{ mostRecentStudent.name }}. See you later!
+            Goodbyeeek 11 {{ mostRecentStudent.name }}. See you later!
         </div>
     </div>
 </div>
