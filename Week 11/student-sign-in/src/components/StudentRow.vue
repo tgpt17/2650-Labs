@@ -15,7 +15,7 @@ const isStudentPresent = ref(props.student.present)
 
 // Function to emit the 'delete-student' event when the user confirms deletion
 const notifyArrivedOrLeft = () => {
-    if (confirm('Delete ${props.student.name}?')) {
+    if (confirm(`Delete ${props.student.name}?`)) {
         emit('delete-student', props.student)
     }
 }

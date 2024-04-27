@@ -1,7 +1,7 @@
 <script setup>
 
   import BodyMassIndexForm from './components/BodyMassIndexForm.vue'
-  import { useBmiStore } from "../stores/BMIstore.js"
+  import { useBmiStore } from "./stores/BMIstore.js"
   import { storeToRefs } from 'pinia'
 
   const BMIStore = useBMIStore()

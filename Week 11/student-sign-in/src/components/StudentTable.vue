@@ -34,7 +34,7 @@ const pluralStudentMessage = computed (() => {
         return 'There is 1 student in class.'
     } else {
         // Using string interpolation to include the number of students
-        return 'There are ${studentCount.value} students in class'
+        return `There are ${studentCount.value} students in class`
     }
 })
 </script>
@@ -67,8 +67,8 @@ const pluralStudentMessage = computed (() => {
                     v-for="student in sortedStudents"
                     v-bind:key="student.starID" 
                     v-bind:student="student"
-                    v-on:delete-student="deleteStudent"
-                    v-on:arrived-or-left="arrivedOrLeft">
+                    v-on:arrived-or-left="arrivedOrLeft"
+                    v-on:delete-student="deleteStudent">
                 </StudentRow>
             </tbody>
         </table>
@@ -88,7 +88,7 @@ const pluralStudentMessage = computed (() => {
 
 th, td {
     width: 25%;
-    text-align: center;
+    text-align: left;
 }
 
 </style>
