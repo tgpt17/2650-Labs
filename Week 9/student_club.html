@@ -82,8 +82,17 @@
     <button v-on:click="removeSelectedStudents" id="remove-selected-students">Remove selected students</button>
 
     <!-- Welcome and goodbye messages -->
-    <p v-if="studentCount > 0">Welcome to the club!</p>
-    <p v-else>Goodbye! The club is empty.</p>
+    <div id="welcome-or-goodbye-message" class="m-2">
+        <div v-if="mostRecentStudent.name">
+
+            <div v-if="mostRecentStudent.present" class="alert alert-success">
+                Welcome, {{ mostRecentStudent.name }}!
+            </div>
+            <div v-else class="alert alert-info">
+                Goodbye, {{ mostRecentStudent.name }}. See you later!
+            </div>     
+        </div>  
+    </div>
 
 </div>  <!-- end of div#app -->
 
@@ -161,6 +170,12 @@
                 }
             }
 
+            const formErrors = ref([])
+            const mostRecentStudent = ref({})
+
+            const arrivedOrLeft = (student) => {
+                mostRecentStudent.value = student
+
             const removeSelectedStudents = () => {
                 // Remove all students with selected = true from the studentList.
                 studentList.value = studentList.value.filter(student => !student.selected)
@@ -181,7 +196,9 @@
                 addNewStudent,
                 removeSelectedStudents,
                 studentCount,
-                togglePresent
+                togglePresent,
+                mostRecentStudent,
+                arrivedOrLeft
             }
         } // end of setup function
     }).mount('#app') // connect to the HTML in the div #app - all the HTML for this page
