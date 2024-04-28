@@ -24,6 +24,11 @@ const questions = [
         'answer1': 'Famous movie star',
         'answer2': 'Famous scientist'
     },
+    {
+        'question': 'Go on a ski vacation or a beach vacation?',
+        'answer1': 'Ski Vacation',
+        'answer2': 'Beach vacation'
+    },
 ]
 
 function randomWYRQuestion() {
