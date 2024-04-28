@@ -30,7 +30,7 @@ onMounted( () => {
 <template>
 
 <div id="app-component">
-  <h1>Would You Rather?</h1>
+  <h1>Hello! Would You Rather?</h1>
 
   <!-- Using the WouldYouRather component -->
   <WouldYouRather 
