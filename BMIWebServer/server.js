@@ -7,12 +7,16 @@ const bodyParser = require('body-parser')
 
 //routing is figuring out what page the user wants
 // typically based on a URL (browser address bar)
-const indexRouter = require('./routes/index.js')
+const indexRouter = require('./routes/index')
 
 const app = express()
 
 // enable parsing of POST request form body
 app.use(bodyParser.urlencoded({ extended: false }))
+
+// serve static files, such as CSS
+const staticFileLocation = path.join(__dirname, 'public')
+app.use(express.static(staticFileLocation))
 
 // configure it to use the Handlebars template engine and 
 // work with template files in the views directory 
@@ -22,4 +26,6 @@ app.set('view engine', 'hbs')
 
 app.use('/', indexRouter)
 
-let server = app.listen(3000)
+let server = app.listen(process.env.PORT || 3000, function() {
+    console.log('Express server running on port', server.address().port)
+})
