@@ -15,7 +15,7 @@
   ])
 
   // Creating a reactive variable to store the user's choice
-  const choice = ref('')
+  const choice = ref('null')
 
   // Function to handle when a choice is made
   function choiceMade() {

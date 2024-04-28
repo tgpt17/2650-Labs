@@ -1,21 +1,29 @@
 <script setup>
-  // Importing the WouldYouRather component from its file
+   import { ref, onMounted } from 'vue'
+ 
+ // Importing the WouldYouRather component from its file
   import WouldYouRather from './components/WouldYouRather.vue'
-
-  // Importing the ref function from Vue
-  import { ref } from 'vue'
+  import wyrService from './services/wyrService';
 
   // Creating reactive variables to store the question and answers
-  const wyrQuestion = ref('Live in a house shaped like a triangle or a house shaped like a circle?')
-  const wyrAnswer1 = ref('Triangle House')
-  const wyrAnswer2 = ref('Circle House')
+  const wyrQuestion = ref('')
+  const wyrAnswer1 = ref('')
+  const wyrAnswer2 = ref('')
+
+onMounted( () => {
+  wyrService.getRandomWYR().then( (wyrData) => {
+    wyrQuestion.value = wyrData.question
+    wyrAnswer1.value = wyrData.answer1
+    wyrAnswer2.value = wyrData.answer2
+  })
+})
 
   // This will store the user's answer once they've made a choice
   const userSelection = ref('')
 
   // Function to update the user's selection
   function updateUserSelection(userChoice) {
-    userSelection.value = userChoice
+    userSelection.value = `Thanks! You chose ${userChoice}`
   }
 </script>
 
@@ -43,7 +51,7 @@
 
 #app-component {
   font-size: larger;
-  background-color: aqua;
+  background-color: darkblue;
   padding: 40px;
 }
 
