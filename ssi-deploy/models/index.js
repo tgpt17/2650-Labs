@@ -2,11 +2,11 @@ const { Sequelize, DataTypes } = require('sequelize')
 const configJson = require('../config.json')
 const createStudentModel = require('./student.js')
 
-// look for an environment variable will be called NODE_ENV and read its value
-// environment variables are set for your whole computer (or for a server)
-// an application running on this computer (or server) can read these environment variable
+// Look for an environment variable will be called NODE_ENV and read its value
+// Environment variables are set for your whole computer (or for a server)
+// An application running on this computer (or server) can read these environment variable
 // At Zzure, we'll create an environment variable for your server  called NODE_ENV and set it to "production"
-//if there is no NODE_ENV set, like on your computer, we'll use the value 'development'
+// If there is no NODE_ENV set, like on your computer, we'll use the value 'development'
 const env = process.env.NODE_ENV || 'development'
 
 const config = configJson[env] // read the configuration object for 'development' or 'production'
